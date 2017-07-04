@@ -5,6 +5,7 @@ public class FizzBuzzResult
     bool fizz;
     bool buzz;
     bool bang;
+    bool fezz;
 
     public void SetFizz(bool fizzResult)
     {
@@ -36,8 +37,18 @@ public class FizzBuzzResult
         return bang;
     }
 
+    public void SetFezz(bool fezzResult)
+    {
+        fezz = fezzResult;
+    }
+
+    public bool GetFezz()
+    {
+        return fezz;
+    }
+
     public bool NoSpecialCase()
     {
-        return !(fizz || buzz || bang);
+        return !(fizz || buzz || bang || fezz);
     }
 }
