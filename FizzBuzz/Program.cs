@@ -34,7 +34,11 @@ namespace FizzBuzz
             if (buzzResult)
                 Console.Write("Buzz");
 
-            if(NeitherFizzOrBuzz(fizzResult, buzzResult))
+            bool bangResult = IsBang(n);
+            if (bangResult)
+                Console.Write("Bang");
+
+            if(NoSpecialCase(fizzResult, buzzResult, bangResult))
             {
                 Console.Write(n);
             }
@@ -51,9 +55,14 @@ namespace FizzBuzz
             return (n % 5 == 0);
         }
 
-        private bool NeitherFizzOrBuzz(bool fizz, bool buzz)
+        private bool IsBang(int n)
         {
-            return !(fizz || buzz);
+            return (n % 7 == 0);
+        }
+
+        private bool NoSpecialCase(bool fizz, bool buzz, bool bang)
+        {
+            return !(fizz || buzz || bang);
         }
     }
 }
