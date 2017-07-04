@@ -11,7 +11,7 @@ namespace FizzBuzz
         static void Main(string[] args)
         {
             Program fizzBuzzProgram = new FizzBuzz.Program();
-            fizzBuzzProgram.PrintFizzBuzzToNInclusive(100);
+            fizzBuzzProgram.PrintFizzBuzzToNInclusive(200);
         }
 
         private void PrintFizzBuzzToNInclusive(int n)
@@ -26,18 +26,26 @@ namespace FizzBuzz
 
         private void PrintFizzBuzzTest(int n)
         {
+            FizzBuzzResult fizzBuzzResult = new FizzBuzzResult();
+
             bool bongResult = IsBong(n);
             if (bongResult)
             {
+                fizzBuzzResult.SetFezz(IsFezz(n));
+                if (fizzBuzzResult.GetFezz())
+                    Console.Write("Fezz");
+
                 Console.Write("Bong");
             }
             else
             {
-                FizzBuzzResult fizzBuzzResult = new FizzBuzzResult();
-
                 fizzBuzzResult.SetFizz(IsFizz(n));
                 if (fizzBuzzResult.GetFizz())
                     Console.Write("Fizz");
+
+                fizzBuzzResult.SetFezz(IsFezz(n));
+                if (fizzBuzzResult.GetFezz())
+                    Console.Write("Fezz");
 
                 fizzBuzzResult.SetBuzz(IsBuzz(n));
                 if (fizzBuzzResult.GetBuzz())
@@ -73,6 +81,11 @@ namespace FizzBuzz
         private bool IsBong(int n)
         {
             return (n % 11 == 0);
+        }
+
+        private bool IsFezz(int n)
+        {
+            return (n % 13 == 0);
         }
 
         private bool NoSpecialCase(bool fizz, bool buzz, bool bang)
