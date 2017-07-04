@@ -26,8 +26,13 @@ namespace FizzBuzz
 
         private void PrintFizzBuzzTest(int n)
         {
-            bool fizzResult = PrintFizzTest(n);
-            bool buzzResult = PrintBuzzTest(n);
+            bool fizzResult = IsFizz(n);
+            if(fizzResult)
+                PrintFizz();
+
+            bool buzzResult = IsBuzz(n);
+            if (buzzResult)
+                PrintBuzz();
 
             if(NeitherFizzOrBuzz(fizzResult, buzzResult))
             {
@@ -37,30 +42,14 @@ namespace FizzBuzz
             PrintNewline();
         }
 
-        private bool PrintFizzTest(int n)
+        private void PrintFizz()
         {
-            if(IsFizz(n))
-            {
-                Console.Write("Fizz");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Console.Write("Fizz");
         }
 
-        private bool PrintBuzzTest(int n)
+        private void PrintBuzz()
         {
-            if(IsBuzz(n))
-            {
-                Console.Write("Buzz");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Console.Write("Buzz");
         }
 
         private bool NeitherFizzOrBuzz(bool fizz, bool buzz)
