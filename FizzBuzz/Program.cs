@@ -33,19 +33,21 @@ namespace FizzBuzz
             }
             else
             {
-                bool fizzResult = IsFizz(n);
-                if (fizzResult)
+                FizzBuzzResult fizzBuzzResult = new FizzBuzzResult();
+
+                fizzBuzzResult.SetFizz(IsFizz(n));
+                if (fizzBuzzResult.GetFizz())
                     Console.Write("Fizz");
 
-                bool buzzResult = IsBuzz(n);
-                if (buzzResult)
+                fizzBuzzResult.SetBuzz(IsBuzz(n));
+                if (fizzBuzzResult.GetBuzz())
                     Console.Write("Buzz");
 
-                bool bangResult = IsBang(n);
-                if (bangResult)
+                fizzBuzzResult.SetBang(IsBang(n));
+                if (fizzBuzzResult.GetBang())
                     Console.Write("Bang");
 
-                if (NoSpecialCase(fizzResult, buzzResult, bangResult))
+                if (fizzBuzzResult.NoSpecialCase())
                 {
                     Console.Write(n);
                 }
