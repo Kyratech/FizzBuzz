@@ -26,21 +26,29 @@ namespace FizzBuzz
 
         private void PrintFizzBuzzTest(int n)
         {
-            bool fizzResult = IsFizz(n);
-            if(fizzResult)
-                Console.Write("Fizz");
-
-            bool buzzResult = IsBuzz(n);
-            if (buzzResult)
-                Console.Write("Buzz");
-
-            bool bangResult = IsBang(n);
-            if (bangResult)
-                Console.Write("Bang");
-
-            if(NoSpecialCase(fizzResult, buzzResult, bangResult))
+            bool bongResult = IsBong(n);
+            if (bongResult)
             {
-                Console.Write(n);
+                Console.Write("Bong");
+            }
+            else
+            {
+                bool fizzResult = IsFizz(n);
+                if (fizzResult)
+                    Console.Write("Fizz");
+
+                bool buzzResult = IsBuzz(n);
+                if (buzzResult)
+                    Console.Write("Buzz");
+
+                bool bangResult = IsBang(n);
+                if (bangResult)
+                    Console.Write("Bang");
+
+                if (NoSpecialCase(fizzResult, buzzResult, bangResult))
+                {
+                    Console.Write(n);
+                }
             }
 
             Console.WriteLine();
@@ -58,6 +66,11 @@ namespace FizzBuzz
         private bool IsBang(int n)
         {
             return (n % 7 == 0);
+        }
+
+        private bool IsBong(int n)
+        {
+            return (n % 11 == 0);
         }
 
         private bool NoSpecialCase(bool fizz, bool buzz, bool bang)
